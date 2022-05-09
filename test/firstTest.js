@@ -1,8 +1,7 @@
 const { Builder, By } = require("selenium-webdriver");
 const should = require("chai").should();
 //describe block
-describe("Adding and checking new item", function () {
-
+describe("Adding and checking the new item", function () {
     //it block
     it("Filling all fields", async function () {
         //launch the browser
@@ -28,15 +27,11 @@ describe("Adding and checking new item", function () {
         email.should.to.contain("Piere@gmail.com");
         caddress.should.to.contain("Paris");
         paddress.should.to.contain("Lyon");
-
-
         //close the browser
         await driver.quit();
     });
 
 });
-
-
 
 
 

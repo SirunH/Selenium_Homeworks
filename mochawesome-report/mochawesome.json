@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-05-09T13:10:02.774Z",
+    "end": "2022-05-09T13:12:14.320Z",
+    "duration": 131546,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f40ee41-801c-47a1-a8db-e87d5ffef2d6",
+      "title": "",
+      "fullFile": "C:\\Users\\User\\Desktop\\SeleniumHomework\\test\\firstTest.js",
+      "file": "\\test\\firstTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2ee144d8-54b2-4117-9ad9-cc3b49a334ce",
+          "title": "Adding and checking the new item",
+          "fullFile": "C:\\Users\\User\\Desktop\\SeleniumHomework\\test\\firstTest.js",
+          "file": "\\test\\firstTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Filling all fields with valid data",
+              "fullTitle": "Adding and checking the new item Filling all fields with valid data",
+              "timedOut": false,
+              "duration": 86104,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//launch the browser\nlet driver = await new Builder().forBrowser(\"firefox\").build();\n//navigate to TextBox page\nawait driver.get(\"https://demoqa.com/text-box\");\nlet url = await driver.getCurrentUrl();\nurl.should.to.contain(\"https://demoqa.com/text-box\");\n//fill the fields\nlet NewName = await driver.findElement(By.id(\"userName\")).sendKeys(\"Piere\");\nlet NewEmail = await driver.findElement(By.id(\"userEmail\")).sendKeys(\"Piere@gmail.com\");\nlet NewCaddress = await driver.findElement(By.id(\"currentAddress\")).sendKeys(\"Paris\");\nlet NewPaddress = await driver.findElement(By.id(\"permanentAddress\")).sendKeys(\"Lyon\");\n//click the Submit button\nlet element = driver.findElement(By.id(\"submit\"));\nawait driver.executeScript(\"arguments[0].scrollIntoView()\", element);\nelement.click();\n//assert a new item is added\nlet newItem = await driver.findElement(By.id(\"output\")).getText();\nlet name = await driver.findElement(By.id(\"name\")).getText();\nlet email = await driver.findElement(By.id(\"email\")).getText();\nlet caddress = await driver.findElement(By.css(\"p:nth-child(3)\")).getText();\nlet paddress = await driver.findElement(By.css(\"p:last-child\")).getText();\nname.should.to.contain(\"Piere\");\nemail.should.to.contain(\"Piere@gmail.com\");\ncaddress.should.to.contain(\"Paris\");\npaddress.should.to.contain(\"Lyon\");\n//close the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "fea32233-8cd6-4b07-a1d7-18b29a077c5a",
+              "parentUUID": "2ee144d8-54b2-4117-9ad9-cc3b49a334ce",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filling one field with invalid data",
+              "fullTitle": "Adding and checking the new item Filling one field with invalid data",
+              "timedOut": false,
+              "duration": 45374,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//launch the browser\nlet driver = await new Builder().forBrowser(\"firefox\").build();\n//navigate to TextBox page\nawait driver.get(\"https://demoqa.com/text-box\");\nlet url = await driver.getCurrentUrl();\nurl.should.to.contain(\"https://demoqa.com/text-box\");\n//fill the fields\nlet NewName = await driver.findElement(By.id(\"userName\")).sendKeys(\">>>>\");\nlet NewEmail = await driver.findElement(By.id(\"userEmail\")).sendKeys(\"Piere@gmail.com\");\nlet NewCaddress = await driver.findElement(By.id(\"currentAddress\")).sendKeys(\"Paris\");\nlet NewPaddress = await driver.findElement(By.id(\"permanentAddress\")).sendKeys(\"Lyon\");\n//click the Submit button\nlet element = driver.findElement(By.id(\"submit\"));\nawait driver.executeScript(\"arguments[0].scrollIntoView()\", element);\nelement.click();\n//assert a new item is added\nlet newItem = await driver.findElement(By.id(\"output\")).getText();\nlet name = await driver.findElement(By.id(\"name\")).getText();\nlet email = await driver.findElement(By.id(\"email\")).getText();\nlet caddress = await driver.findElement(By.css(\"p:nth-child(3)\")).getText();\nlet paddress = await driver.findElement(By.css(\"p:last-child\")).getText();\nname.should.to.contain(\"Piere\");\nemail.should.to.contain(\"Piere@gmail.com\");\ncaddress.should.to.contain(\"Paris\");\npaddress.should.to.contain(\"Lyon\");\n//close the browser\nawait driver.quit();",
+              "err": {
+                "message": "AssertionError: expected 'Name:>>>>' to include 'Piere'",
+                "estack": "AssertionError: expected 'Name:>>>>' to include 'Piere'\n    at Context.<anonymous> (test\\firstTest.js:59:24)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)",
+                "diff": null
+              },
+              "uuid": "75a857e7-d811-4ded-b1a2-87b7687a2d18",
+              "parentUUID": "2ee144d8-54b2-4117-9ad9-cc3b49a334ce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fea32233-8cd6-4b07-a1d7-18b29a077c5a"
+          ],
+          "failures": [
+            "75a857e7-d811-4ded-b1a2-87b7687a2d18"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 131478,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
